@@ -78,65 +78,14 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 255, 255), // Set the background color
-          elevation: 0, // Remove shadow
-          title: Row(
-            children: [
-              // Add an icon or logo if needed
-              Icon(Icons.school, color: const Color.fromARGB(255, 12, 0, 0)), // Example icon
-              SizedBox(width: 10), // Spacing between icon and text
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'AI Tutor', // Main title
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 19, 0, 0),
-                    ),
-                  ),
-                  Text(
-                    'HexaElite', // Main title
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: const Color.fromARGB(255, 22, 0, 0),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          actions: [
-            // Add action icons (e.g., notifications, settings)
-            IconButton(
-              icon: Icon(Icons.notifications, color: const Color.fromARGB(107, 27, 1, 1)),
-              onPressed: () {
-                // Handle notification icon press
-              },
-            ),
-            Text(
-                    ' Ashad, Samsudeen', // Subtitle
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: const Color.fromARGB(255, 13, 0, 0).withOpacity(0.8),
-                    ),
-                  ),
-              IconButton(
-              icon: Icon(Icons.settings, color: const Color.fromARGB(25, 27, 0, 0)),
-              onPressed: () {
-                // Handle settings icon press
-              },
-            ),
-            IconButton(
-              icon: Icon(Icons.settings, color: const Color.fromARGB(255, 27, 0, 0)),
-              onPressed: () {
-                // Handle settings icon press
-              },
-            ),
-          ],
-        ),
+        // TRY THIS: Try changing the color here to a specific color (to
+        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
+        // change color while the other colors stay the same.
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
