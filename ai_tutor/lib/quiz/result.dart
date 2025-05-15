@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'dart:math' as math;
 
 void main() {
   runApp(const HexaEliteApp());
 }
 
 class HexaEliteApp extends StatelessWidget {
-  const HexaEliteApp({Key? key}) : super(key: key);
+  const HexaEliteApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class HexaEliteApp extends StatelessWidget {
 }
 
 class CongratulationsScreen extends StatelessWidget {
-  const CongratulationsScreen({Key? key}) : super(key: key);
+  const CongratulationsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -202,7 +202,7 @@ class CongratulationsScreen extends StatelessWidget {
               shape: BoxShape.circle,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
+                  color: Colors.grey.withAlpha((0.2 * 255).toInt()),
                   spreadRadius: 1,
                   blurRadius: 8,
                   offset: const Offset(0, 2),
@@ -309,12 +309,12 @@ class StarsPainter extends CustomPainter {
       final double angle = i * 2 * math.pi / 8;
       
       // Calculate star position
-      final double starX = center.dx + outerRadius * cos(angle);
-      final double starY = center.dy + outerRadius * sin(angle);
+      final double starX = center.dx + outerRadius * math.cos(angle);
+      final double starY = center.dy + outerRadius * math.sin(angle);
       
       // Draw line from center to star
       canvas.drawLine(
-        Offset(center.dx + innerRadius * cos(angle), center.dy + innerRadius * sin(angle)),
+        Offset(center.dx + innerRadius * math.cos(angle), center.dy + innerRadius * math.sin(angle)),
         Offset(starX, starY),
         Paint()
           ..color = const Color(0xFFDAA520)
@@ -335,19 +335,19 @@ class StarsPainter extends CustomPainter {
       
       if (i == 0) {
         path.moveTo(
-          center.dx + size * cos(outerAngle),
-          center.dy + size * sin(outerAngle),
+          center.dx + size * math.cos(outerAngle),
+          center.dy + size * math.sin(outerAngle),
         );
       } else {
         path.lineTo(
-          center.dx + size * cos(outerAngle),
-          center.dy + size * sin(outerAngle),
+          center.dx + size * math.cos(outerAngle),
+          center.dy + size * math.sin(outerAngle),
         );
       }
       
       path.lineTo(
-        center.dx + size * 0.4 * cos(innerAngle),
-        center.dy + size * 0.4 * sin(innerAngle),
+        center.dx + size * 0.4 * math.cos(innerAngle),
+        center.dy + size * 0.4 * math.sin(innerAngle),
       );
     }
     
